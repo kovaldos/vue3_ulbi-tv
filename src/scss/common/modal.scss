@@ -1,0 +1,402 @@
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  background-color: rgba($color-default-black, 0.8);
+  transform: scale(1.2);
+  visibility: hidden;
+  opacity: 0;
+
+  transition: opacity $trans-modal, transform $trans-modal, visibility $trans-modal;
+
+  pointer-events: none;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__wrapper {
+    position: relative;
+
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100%;
+    padding: 60px 40px;
+
+    @include vp-767 {
+      padding: 60px 16px;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    cursor: pointer;
+  }
+
+  &__content {
+    position: relative;
+
+    width: 600px;
+    padding: 40px;
+
+    background-color: $color-default-white;
+
+    @include vp-767 {
+      width: 100%;
+      padding: 20px;
+    }
+  }
+
+  &__close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1;
+    color: $color-default-black;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid $color-default-black;
+    background: $color-transparent;
+    cursor: pointer;
+  }
+
+  &--responsive {
+    .modal__content {
+      width: 100%;
+    }
+  }
+
+  &--fit-content {
+    .modal__content {
+      width: auto;
+
+      @include vp-767 {
+        width: 100%;
+      }
+    }
+  }
+
+  &--no-scale {
+    transform: none;
+  }
+
+  &--preload {
+    transition: none;
+  }
+
+  &.is-active {
+    transform: scale(1);
+    visibility: visible;
+    opacity: 1;
+
+    pointer-events: auto;
+  }
+  &--contact-us {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .contact-us {
+      &__form {
+        padding: 0 0 15px;
+        &-fieldset {
+          padding: 20px 15px 40px;
+        }
+        &-title {
+          padding: 20px 0 0;
+          width: 100%;
+          text-align: left;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 20px;
+          color: $color-bunting;
+        }
+        &-submit {
+          width: 100%;
+          justify-content: center;
+          align-items: center;
+          margin: 0;
+        }
+        &-field {
+          &:not(:last-of-type) {
+            margin: 0 0 20px;
+          }
+          &--message {
+            margin: 0 0 30px;
+          }
+        }
+      }
+      &__agreement {
+        margin: 0;
+        padding: 0 15px;
+        font-size: 12px;
+        line-height: 180%;
+        &-link {
+          font-size: 12px;
+          line-height: 180%;
+        }
+      }
+    }
+    &-road {
+      .contact-us {
+        &__agreement {
+          &-link {
+            color: $color-cobalt;
+          }
+        }
+      }
+    }
+  }
+  &--contact-us & {
+    &__content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: auto;
+      background-color: $color-transparent;
+      @include vp-767 {
+        padding: 0;
+      }
+    }
+    &__close-btn {
+      top: 10px;
+      right: 10px;
+      svg {
+        color: $color-navy-blue;
+      }
+    }
+  }
+  &--vehicle-card & {
+    &__wrapper {
+      @include vp-767 {
+        padding: 0;
+      }
+    }
+    &__content {
+      padding: 60px 100px;
+      border-radius: 20px;
+      max-width: 1170px;
+      width: 100%;
+      @include vp-1279 {
+        padding: 50px 70px;
+      }
+      @include vp-767 {
+        padding: 20px 15px;
+      }
+    }
+    &__close-btn {
+      display: none;
+      @include vp-767 {
+        display: block;
+        color: $color-navy-blue;
+        svg {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+  }
+  &--vacancy-form & {
+    @include vp-424 {
+      &__close-btn {
+        top: 16px;
+        right: 4px;
+        color: $color-cobalt;
+      }
+      &__wrapper {
+        padding: 0;
+      }
+      &__content {
+        padding: 20px 15px;
+      }
+    }
+  }
+  &--vacancy-form {
+    .vacancy__form {
+      &-title {
+        font-size: 16px;
+      }
+      &-form {
+        padding: 0;
+      }
+      &-field {
+        padding: 10px 0;
+        label {
+          input {
+            padding: 15px;
+          }
+        }
+        &--file {
+          label {
+            @include vp-424 {
+              width: 100%;
+              white-space: nowrap;
+            }
+          }
+        }
+      }
+      &-agree {
+        @include vp-424 {
+          text-align: center;
+          padding: 20px 0;
+        }
+      }
+    }
+  }
+  &--offer & {
+    &__close-btn {
+      top: 16px;
+      right: 4px;
+      color: $color-cobalt;
+      @include vp-1023 {
+        top: 0;
+        right: 0;
+      }
+    }
+    &__wrapper {
+      padding: 0;
+    }
+    &__content {
+      padding: 30px 20px;
+      @include vp-639 {
+        padding: 30px 15px;
+      }
+    }
+  }
+  &--offer {
+    .offer__form {
+      &-title {
+        font-size: 20px;
+        margin: 0 0 15px;
+        @include vp-424 {
+          font-size: 18px;
+        }
+      }
+      &-subtitle {
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 500;
+        margin: 0 0 15px;
+        @include vp-424 {
+          font-size: 14px;
+        }
+      }
+      &-form {
+        padding: 0;
+      }
+      &-row {
+        display: flex;
+        gap: 1rem;
+        @include vp-1023 {
+          flex-direction: column;
+          gap: 0;
+        }
+      }
+      &-field {
+        max-width: 100%;
+        padding: 10px 0;
+        label {
+          input {
+            padding: 15px;
+          }
+        }
+        &--file {
+          label {
+            max-width: fit-content;
+            @include vp-424 {
+              width: 100%;
+              white-space: nowrap;
+            }
+            input {
+              border: 0;
+              position: absolute;
+              width: 0;
+              height: 0;
+              min-height: 0;
+              padding: 0;
+              -webkit-box-flex: 1;
+              -ms-flex: auto;
+              flex: auto;
+              &:hover {
+                outline: none;
+                border: 0;
+              }
+              &:focus {
+                outline: none;
+                outline: none;
+                border: 0;
+              }
+              &:focus-visible {
+                outline: none;
+                border: 0;
+              }
+            }
+            svg {
+              margin: 0 1rem 0 0;
+            }
+          }
+          &.is-invalid {
+            label {
+              box-shadow: 0 0 5px 2px rgba($color-torch-red, 0.5);
+            }
+          }
+        }
+      }
+      &-btn-del {
+        color: $color-outrageous-orange;
+        font-size: 1rem;
+        padding: 1rem;
+        &.is-hidden {
+          opacity: 0;
+          visibility: hidden;
+          pointer-events: none;
+          user-select: none;
+        }
+      }
+      &-submit {
+        display: flex;
+        margin: 1rem 0;
+        padding: 16px 48px;
+        border-radius: 7px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        @include vp-374 {
+          padding: 1rem;
+        }
+      }
+      &-limit {
+        @include vp-424 {
+          text-align: center;
+          padding: 20px 0;
+        }
+        &-text {
+          font-size: 0.8rem;
+          line-height: 1.25;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+.btn {
+  width: 100%;
+  max-width: 500px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  // margin: 10px 0;
+  padding: 10px 20px;
+  color: $color-default-white;
+  background-color: $color-bunting;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: opacity $trans-default, background-color $trans-default, border-color $trans-default, color $trans-default,
+    transform $trans-default, box-shadow $trans-default;
+
+  &--transp {
+    background-color: $color-transparent;
+  }
+  &--reset {
+    border: 0;
+    background-color: $color-transparent;
+    padding: 0;
+    margin: 0;
+  }
+  &--centered {
+    margin: 0 auto;
+    display: flex;
+    width: fit-content;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+
+    pointer-events: none;
+  }
+  @include hover-focus {
+    opacity: 0.8;
+  }
+}
