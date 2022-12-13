@@ -2,13 +2,15 @@
   <div class="posts__wrapper" v-if="posts.length > 0">
     <h2 class="title title--h2 posts__title">Post list</h2>
     <ul class="posts__list">
-      <post-item
-        v-for="post in posts"
-        :key="post.id"
-        :id="post.id"
-        :post="post"
-        @remove="$emit('remove', post)"
-      />
+      <transition-group name="post-list">
+        <post-item
+          v-for="post in posts"
+          :key="post.id"
+          :id="post.id"
+          :post="post"
+          @remove="$emit('remove', post)"
+        />
+      </transition-group>
     </ul>
   </div>
   <h2 class="title title--h2 posts__title posts__title--empty" v-else>
@@ -44,5 +46,21 @@ export default {
     margin: 0;
     padding: 0;
   }
+}
+.post-list-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+.post-list-enter-active,
+.post-list-leave-active {
+  transition: all 0.3s ease;
+}
+.post-list-enter-from,
+.post-list-leave-to {
+  opacity: 0;
+  transform: translateX(50px);
+}
+.post-list-move {
+  transition: transform 0.3s ease;
 }
 </style>

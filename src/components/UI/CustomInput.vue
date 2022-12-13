@@ -28,6 +28,7 @@ export default {
     type: {
       type: String,
       required: false,
+      default: "text",
     },
     placeholder: {
       type: String,
@@ -40,8 +41,8 @@ export default {
     modelValue: [String, Number],
   },
   methods: {
-    updateInput(evt) {
-      this.$emit("update:modelValue", evt.target.value);
+    updateInput(event) {
+      this.$emit("update:modelValue", event.target.value);
     },
   },
 };
