@@ -1,6 +1,7 @@
 <template>
   <li class="posts__list-item post">
     <div class="post__content">
+      <strong>{{ post.id }}</strong>
       <div class="post__heading">
         <strong>Title: </strong>
         <h3 class="title title--h3 post__title">{{ post.title }}</h3>
