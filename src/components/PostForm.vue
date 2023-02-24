@@ -28,7 +28,6 @@
 </template>
 
 <script>
-import { initFormValidate } from "@/js/form/init-form-validate";
 import CustomInput from "./UI/CustomInput.vue";
 export default {
   components: { CustomInput },
@@ -49,9 +48,6 @@ export default {
         body: "",
       };
     },
-  },
-  mounted() {
-    initFormValidate();
   },
 };
 </script>
