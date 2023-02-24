@@ -1,5 +1,5 @@
 <template>
-  <div class="modal is-active" v-if="show">
+  <div class="modal" :class="{ 'is-active': show }" v-if="show">
     <div class="modal__wrapper">
       <div class="modal__overlay" @click="closeCustomModal"></div>
       <div class="modal__content">
@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/scss/variables";
-@import "@/scss/mixins";
-@import "@/scss/common/modal";
+@import "@/scss/variables.scss";
+@import "@/scss/mixins.scss";
+@import "@/scss/common/modal.scss";
 </style>
