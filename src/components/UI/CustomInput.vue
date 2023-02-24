@@ -19,11 +19,11 @@ export default {
   props: {
     id: {
       type: String,
-      required: true,
+      required: false,
     },
     name: {
       type: String,
-      required: true,
+      required: false,
     },
     type: {
       type: String,
@@ -49,7 +49,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/scss/variables";
-@import "@/scss/mixins";
-@import "@/scss/common/custom-input";
+@import "@/scss/variables.scss";
+@import "@/scss/mixins.scss";
+@import "@/scss/common/custom-input.scss";
 </style>
