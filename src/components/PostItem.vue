@@ -13,9 +13,14 @@
     </div>
     <div class="post__btns">
       <custom-btn
+        class="post__btn post__btn--open"
+        @click="this.$router.push(`/posts/${post.id}`)"
+        >Open</custom-btn
+      >
+      <custom-btn
         class="post__btn post__btn--del"
         @click="$emit('remove', post)"
-        >delete</custom-btn
+        >Delete</custom-btn
       >
     </div>
   </li>
@@ -33,15 +38,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/scss/variables";
+@import "@/scss/variables.scss";
+@import "@/scss/mixins.scss";
 .post {
   padding: 1rem;
   border-radius: 0.5rem;
   border: 1px solid $color-outrageous-orange;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
   gap: 2rem;
+  @include vp-768 {
+    flex-direction: row;
+  }
   &:not(:last-of-type) {
     margin: 0 0 1rem;
   }
@@ -56,9 +65,20 @@ export default {
   }
   &__content {
     flex: 1 1 auto;
+    @include vp-768 {
+      flex-grow: 10;
+      flex-shrink: 10;
+    }
   }
-  &__btn {
+  &__btns {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     flex-shrink: 0;
+    @include vp-768 {
+      width: auto;
+    }
   }
 }
 </style>
