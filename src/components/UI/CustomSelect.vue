@@ -28,8 +28,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/scss/variables";
-@import "@/scss/mixins";
+@import "@/scss/variables.scss";
+@import "@/scss/mixins.scss";
 .select {
   width: 100%;
   max-width: 200px;
