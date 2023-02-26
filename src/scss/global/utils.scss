@@ -21,6 +21,11 @@
   @include vp-1023 {
     padding: 25px 0;
   }
+  &__title {
+    @include vp-1024 {
+      width: 65vw;
+    }
+  }
 }
 
 .rouble {
