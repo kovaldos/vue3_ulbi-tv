@@ -33,7 +33,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/scss/variables";
+@import "@/scss/style.scss";
 .posts {
   &__title {
     margin: 0 0 2rem;
@@ -58,7 +58,7 @@ export default {
 .post-list-enter-from,
 .post-list-leave-to {
   opacity: 0;
-  transform: translateX(50px);
+  transform: translateY(100px);
 }
 .post-list-move {
   transition: transform 0.3s ease;
