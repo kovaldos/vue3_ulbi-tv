@@ -14,20 +14,11 @@
 
 <script>
 import CustomBtn from "./CustomBtn.vue";
+import toggleMixin from "@/mixins/toggleMixin";
 export default {
   components: { CustomBtn },
   name: "custom-modal",
-  props: {
-    show: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  methods: {
-    closeCustomModal() {
-      this.$emit("update:show", false);
-    },
-  },
+  mixins: [toggleMixin],
 };
 </script>
 
