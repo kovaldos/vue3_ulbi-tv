@@ -14,15 +14,15 @@
 
 // ---------------------------------
 
-@import "./variables";
-@import "./mixins";
-@import "./functions";
+@import "./variables.scss";
+@import "./mixins.scss";
+@import "./functions.scss";
 
 // Common
 // ---------------------------------
 // @import "./common/custom-input";
 // @import "./common/btn";
-@import "./common/title";
+@import "./common/title.scss";
 // ---------------------------------
 
 // Global
